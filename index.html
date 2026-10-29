@@ -111,7 +111,13 @@ tr:last-child td{border-bottom:none}
 .slider-box label{display:block;font-size:14px;color:var(--mut);margin-bottom:10px}
 .slider-box label b{color:var(--txt);font-size:18px}
 .slider-box input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer}
-.slider-scale{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-top:4px}
+.slider-scale{position:relative;height:18px;font-size:12px;color:var(--mut);margin-top:4px}
+.slider-scale span{position:absolute;top:0;white-space:nowrap}
+.slider-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.slider-top label{margin:0}
+.manual{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mut)}
+.manual input{width:190px;background:var(--card2);border:1px solid var(--bd);color:var(--txt);border-radius:10px;padding:8px 10px;font:600 14px Inter;text-align:right}
+.over{color:var(--gold)}
 footer{padding:36px 0 50px;color:var(--mut);font-size:13.5px}
 footer b{color:var(--txt)}
 @media(max-width:640px){.p-elite{width:150px;height:195px}.p-corp,.p-virt,.p-pay{width:100%;height:auto;aspect-ratio:1.7}.cc{width:100%}.cc:first-child{width:auto}.clogo{height:48px}.ramp{grid-template-columns:1fr}.ap .amt{font-size:36px}}
@@ -195,9 +201,13 @@ footer b{color:var(--txt)}
 </div>
 
 <div class="slider-box">
+<div class="slider-top">
 <label>Gasto mensual en tarjetas: <b id="gastoLbl">—</b> <span id="gastoPct" style="font-size:13px"></span></label>
-<input type="range" id="gasto" min="50000000" max="2844000000" step="1000000" value="2844000000">
-<div class="slider-scale"><span>$50 millones</span><span>$1.422 millones</span><span>$2.844 millones · cupo aprobado</span></div>
+<div class="manual">Ingresar valor (COP) <input type="text" inputmode="numeric" id="gastoTxt" value="2.844.000.000"></div>
+</div>
+<input type="range" id="gastoRange" min="50000000" max="6000000000" step="1000000" value="2844000000">
+<input type="hidden" id="gasto" value="2844000000">
+<div class="slider-scale"><span style="left:0">$50 millones</span><span style="left:47.2%;transform:translateX(-50%)">▲ $2.844 millones · cupo aprobado</span><span style="right:0">$6.000 millones</span></div>
 </div>
 
 <div class="res-title">Ahorros por rubro · Anual</div>
@@ -309,7 +319,7 @@ var minMes=costo/(12*0.004+6*0.01);
 var minMes2=costo/(12*0.004);
 document.getElementById('gmfPrev').value=cop(ahorroGMF);
 document.getElementById('gastoLbl').textContent=cop(gasto)+' / mes';
-document.getElementById('gastoPct').textContent='· '+(gasto/2844000000*100).toLocaleString('es-CO',{maximumFractionDigits:0})+'% del cupo aprobado';
+var pctC=gasto/2844000000*100, gp=document.getElementById('gastoPct'); gp.textContent='· '+pctC.toLocaleString('es-CO',{maximumFractionDigits:0})+'% del cupo aprobado'+(pctC>100?' · supera el cupo aprobado':''); gp.className=pctC>100?'over':'';
 document.getElementById('cbPrev').value=cop(ahorroCashback);
 document.getElementById('rGmf').textContent=cop(ahorroGMF);
 document.getElementById('rCb').textContent=cop(ahorroCashback);
@@ -329,7 +339,15 @@ document.getElementById('cbJeeves').textContent=cop(ahorroCashback);
 document.getElementById('cbClara').textContent=cop(cbClara);
 document.getElementById('cbDiff').textContent=cop(ahorroCashback-cbClara)+' más en el primer año';
 }
-['planUSD','trm','gasto'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
+['planUSD','trm'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
+(function(){
+var r=document.getElementById('gastoRange'), t=document.getElementById('gastoTxt'), h=document.getElementById('gasto');
+function fmt(n){return Math.round(n).toLocaleString('es-CO');}
+function setVal(n,src){n=Math.max(0,Math.round(n)||0);h.value=n;if(src!=='r')r.value=Math.min(Math.max(n,+r.min),+r.max);if(src!=='t')t.value=fmt(n);calc();}
+r.addEventListener('input',function(){setVal(+r.value,'r');});
+t.addEventListener('input',function(){setVal(+t.value.replace(/[^0-9]/g,''),'t');});
+t.addEventListener('blur',function(){t.value=fmt(+h.value);});
+})();
 calc();
 </script>
 </body>
