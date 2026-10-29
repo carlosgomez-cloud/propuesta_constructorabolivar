@@ -111,10 +111,10 @@ footer b{color:var(--txt)}
 
 <div class="hero">
 <span class="pill ok">✓ Cupo aprobado · Comité de Crédito Jeeves · Octubre 2026</span>
-<h1>Cupo de <span class="gold">USD 900.000</span> para tarjetas y pagos a proveedores con dispersión a cuentas, con <span class="green">0% interés</span>.</h1>
+<h1>Cupo de <span class="gold">USD 900.000</span> <span style="color:var(--mut);font-weight:600">(≈ COP 2.844 millones)</span> para tarjetas y pagos a proveedores con dispersión a cuentas, con <span class="green">0% interés</span>.</h1>
 <p class="lead">Capital de trabajo para los pagos a notarías y proveedores nacionales de Constructora Bolívar: tarjetas corporativas y virtuales + Jeeves Pay para dispersar directamente a cuentas bancarias, con hasta 37 días para pagar y sin 4x1000.</p>
 <div class="stats">
-<div class="stat"><b>USD 900K</b><span>cupo aprobado · ≈ COP 2.844MM</span></div>
+<div class="stat"><b>COP 2.844MM</b><span>cupo aprobado · USD 900.000</span></div>
 <div class="stat"><b>37 días</b><span>sin intereses</span></div>
 <div class="stat"><b>4x1000</b><span>exención total</span></div>
 <div class="stat"><b>1%</b><span>cashback · 6 meses</span></div>
@@ -136,7 +136,8 @@ footer b{color:var(--txt)}
 <div class="ap g">
 <h3>Cupo aprobado</h3>
 <div class="amt">USD 900.000</div>
-<div class="sub">≈ COP 2.844 millones · Tarjetas + Jeeves Pay · Plan Gold</div>
+<div class="amt" style="font-size:28px;color:var(--txt);margin-top:6px">≈ COP 2.844.000.000</div>
+<div class="sub">Tarjetas + Jeeves Pay · Plan Gold · TRM de referencia COP 3.160</div>
 <div class="ramp" style="grid-template-columns:1fr">
 <div class="rp"><small>Disponibilidad</small><b class="gold">100% desde el mes 1</b><span>El cupo completo queda disponible al activar la cuenta.</span></div>
 </div>
@@ -145,7 +146,7 @@ footer b{color:var(--txt)}
 <h3>Condiciones para la activación</h3>
 <ol class="cond">
 <li>Pagaré<small>Firmado por el representante legal.</small></li>
-<li>Suscripción a la plataforma · Plan Gold<small>USD 3.000 al año.</small></li>
+<li>Suscripción a la plataforma · Plan Gold<small>USD 6.000 al año (≈ <span class="planCop">COP 18.960.000</span>).</small></li>
 <li>Contrato de uso<small>Firma del contrato de uso de la plataforma Jeeves.</small></li>
 <li>Conexión con la DIAN<small>Plazo de 1 mes para conectarse y acceder a las condiciones preferenciales.</small></li>
 </ol>
@@ -166,13 +167,13 @@ footer b{color:var(--txt)}
 <div class="panel" id="calcPanel" hidden>
 <div class="grid">
 <div><label>Plan de la Plataforma</label><input type="text" value="Gold" disabled></div>
-<div><label>Valor Anual del Plan (USD)</label><input type="number" id="planUSD" value="3000" min="0" step="100"></div>
+<div><label>Valor Anual del Plan (USD)</label><input type="number" id="planUSD" value="6000" min="0" step="100"></div>
 <div><label>TRM del día (COP/USD)</label><input type="number" id="trm" value="3160" min="0" step="1"><div class="hint">TRM de referencia · 23 oct 2026 (editable)</div></div>
 <div><label>Gasto mensual en tarjetas (COP)</label><input type="number" id="gasto" value="2844000000" min="0" step="1000000"><div class="hint">Línea de crédito aprobada: USD 900.000 ≈ COP 2.844.000.000</div></div>
 <div><label>Gravamen 4x1000 (GMF) · anual</label><input type="text" id="gmfPrev" disabled></div>
 <div><label>Cashback 1% · primeros 6 meses</label><input type="text" id="cbPrev" disabled></div>
 </div>
-<div class="note"><b>Fórmulas.</b> Volumen anual = gasto mensual × 12 · Ahorro 4x1000 = volumen anual × 0,4% · Cashback = gasto mensual × 6 meses × 1% (solo primer año) · Costo de plataforma = valor anual del plan × TRM · Neto = ahorro total − costo de plataforma · ROE = neto ÷ costo de plataforma.<br><br><b>Supuestos.</b> Se asume el uso del 100% del cupo aprobado cada mes, disponible desde el primer mes. La TRM es de referencia y se puede ajustar.</div>
+<div class="note"><b>Fórmulas.</b> Volumen anual = gasto mensual × 12 · Ahorro 4x1000 = volumen anual × 0,4% · Cashback = gasto mensual × 6 meses × 1% · Costo de plataforma = valor anual del plan × TRM · Neto = ahorro total − costo de plataforma · ROE = neto ÷ costo de plataforma · Consumo mínimo mensual para cubrir la suscripción = costo de plataforma ÷ (12 × 0,4% + 6 × 1%).<br><br><b>Supuestos.</b> Se asume el uso del 100% del cupo aprobado cada mes, disponible desde el primer mes. La TRM es de referencia y se puede ajustar.</div>
 </div>
 
 <div class="res-title">Ahorros por rubro · Anual</div>
@@ -183,12 +184,11 @@ footer b{color:var(--txt)}
 
 <div class="tot">
 <div class="tt"><small>Ahorro Total · Primer Año</small><div class="big" id="t1">—</div><div class="net">Menos costo de plataforma (<span class="cost">—</span>) = <b id="n1">—</b> neto</div></div>
-<div class="tt"><small>Ahorro Total · A partir del segundo año</small><div class="big" id="t2">—</div><div class="net">Menos costo de plataforma (<span class="cost">—</span>) = <b id="n2">—</b> neto</div></div>
+<div class="tt" style="background:linear-gradient(180deg,#1f1a0d,#141418);border-color:#4a3d18"><small>Consumo mínimo mensual para cubrir la suscripción</small><div class="big" id="minMes" style="color:var(--gold)">—</div><div class="net">Con este consumo mensual, el ahorro en 4x1000 + cashback paga el Plan Gold (<span class="cost">—</span> al año). Equivale al <b id="minPct">—</b> del cupo aprobado.</div></div>
 </div>
 
 <div class="roe">
 <div class="rr"><small>🏆 ROE · Primer año</small><div class="big" id="roe1">—</div></div>
-<div class="rr"><small>🏆 ROE · Segundo año en adelante</small><div class="big" id="roe2">—</div></div>
 </div>
 </section>
 
@@ -208,7 +208,8 @@ footer b{color:var(--txt)}
 <div class="plan">
 <div class="pc g">
 <h3>Plan Gold</h3>
-<div class="price">USD 3.000 <span style="font-size:15px;color:var(--mut);font-weight:500">/ año</span></div>
+<div class="price">USD 6.000 <span style="font-size:15px;color:var(--mut);font-weight:500">/ año</span></div>
+<div style="color:var(--mut);font-size:14px;margin:-8px 0 14px">≈ <span class="planCop">COP 18.960.000</span> al año</div>
 <ul>
 <li>Tarjetas corporativas físicas y virtuales ilimitadas</li>
 <li>Jeeves Pay · pagos a proveedores con dispersión a cuentas</li>
@@ -246,20 +247,21 @@ var volumenAnual=gasto*12;
 var ahorroGMF=volumenAnual*0.004;
 var ahorroCashback=gasto*6*0.01;
 var costo=planUSD*trm;
-var t1=ahorroGMF+ahorroCashback,t2=ahorroGMF;
-var n1=t1-costo,n2=t2-costo;
-var r1=costo>0?n1/costo*100:0,r2=costo>0?n2/costo*100:0;
+var t1=ahorroGMF+ahorroCashback;
+var n1=t1-costo;
+var r1=costo>0?n1/costo*100:0;
+var minMes=costo/(12*0.004+6*0.01);
 document.getElementById('gmfPrev').value=cop(ahorroGMF);
 document.getElementById('cbPrev').value=cop(ahorroCashback);
 document.getElementById('rGmf').textContent=cop(ahorroGMF);
 document.getElementById('rCb').textContent=cop(ahorroCashback);
 document.getElementById('t1').textContent=cop(t1);
-document.getElementById('t2').textContent=cop(t2);
 document.getElementById('n1').textContent=cop(n1);
-document.getElementById('n2').textContent=cop(n2);
 document.querySelectorAll('.cost').forEach(function(e){e.textContent=cop(costo);});
 document.getElementById('roe1').textContent=pct(r1);
-document.getElementById('roe2').textContent=pct(r2);
+document.getElementById('minMes').textContent=cop(minMes);
+document.getElementById('minPct').textContent=(gasto>0?(minMes/gasto*100).toLocaleString('es-CO',{maximumFractionDigits:1}):'0')+'%';
+document.querySelectorAll('.planCop').forEach(function(e){e.textContent='COP '+Math.round(costo).toLocaleString('es-CO');});
 document.getElementById('planNet').textContent=cop(n1)+' neto · año 1';
 }
 ['planUSD','trm','gasto'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
