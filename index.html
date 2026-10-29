@@ -94,6 +94,19 @@ tr:last-child td{border-bottom:none}
 .pc li{padding:7px 0 7px 24px;position:relative;font-size:14.5px;border-bottom:1px solid #1d1d23}
 .pc li:before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
 .warn{margin-top:14px;font-size:13.5px;background:#1f1a0d;border:1px solid #4a3d18;color:#e9d9a8;border-radius:12px;padding:12px 14px}
+.cmp td{vertical-align:middle}
+.cmp td:nth-child(2),.cmp td:nth-child(3){color:var(--txt);text-align:center;width:26%}
+.cmp th:nth-child(2),.cmp th:nth-child(3){text-align:center}
+.cmp th:nth-child(2){color:var(--gold)}
+.yes{color:var(--green);font-weight:700}.no{color:#ff7a7a;font-weight:700}
+.cmp-note{font-size:12.5px;color:var(--mut);margin-top:10px}
+.ph{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.phc{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:22px}
+.phc .ic{font-size:24px}
+.phc h3{font-size:17px;margin:8px 0 6px}
+.phc p{color:var(--mut);font-size:14px}
+.phc.g{border-color:#4a3d18;background:linear-gradient(180deg,#1f1a0d,#141418)}
+.tag{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid #4a3d18;border-radius:999px;padding:4px 10px;margin-bottom:10px}
 footer{padding:36px 0 50px;color:var(--mut);font-size:13.5px}
 footer b{color:var(--txt)}
 @media(max-width:640px){.p-elite{width:150px;height:195px}.p-corp,.p-virt,.p-pay{width:100%;height:auto;aspect-ratio:1.7}.cc{width:100%}.cc:first-child{width:auto}.clogo{height:48px}.ramp{grid-template-columns:1fr}.ap .amt{font-size:36px}}
@@ -192,6 +205,21 @@ footer b{color:var(--txt)}
 </div>
 </section>
 
+<section id="comparativo">
+<div class="sh"><div><h2>Jeeves vs. Clara</h2><p>Comparativo sobre el mismo consumo mensual del simulador (≈ <span id="cmpGasto">—</span>/mes).</p></div></div>
+<div class="tbl"><table class="cmp">
+<tr><th>Concepto</th><th>Jeeves</th><th>Clara</th></tr>
+<tr><td>Cashback</td><td><b class="gold">1%</b><br><small style="color:var(--mut)">primeros 6 meses</small></td><td>0,10%</td></tr>
+<tr><td>Cashback estimado · primer año</td><td><b class="green" id="cbJeeves">—</b></td><td id="cbClara">—</td></tr>
+<tr><td>Diferencia a favor con Jeeves</td><td colspan="2" style="text-align:center"><b class="gold" id="cbDiff" style="font-size:20px">—</b></td></tr>
+<tr><td>Pago a proveedores desde la plataforma<br><small style="color:var(--mut);font-weight:400">Dispersión a cuentas bancarias (notarías, cementeras, etc.)</small></td><td><span class="yes">✓ Jeeves Pay</span></td><td><span class="no">✗ No disponible</span></td></tr>
+<tr><td>Pago a proveedores que no reciben tarjeta</td><td><span class="yes">✓</span><br><small style="color:var(--mut)">Dispersión desde el cupo, sin 4x1000</small></td><td><span class="no">✗</span><br><small style="color:var(--mut)">Solo pagos con tarjeta</small></td></tr>
+<tr><td>Tarjetas corporativas físicas y virtuales</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+<tr><td>API para integración con el ERP</td><td><span class="yes">✓ Sin costo</span></td><td>—</td></tr>
+</table></div>
+<div class="cmp-note">Cashback de Clara calculado al 0,10% sobre 12 meses del mismo consumo. Cashback de Jeeves: 1% durante los primeros 6 meses.</div>
+</section>
+
 <section id="diag">
 <div class="sh"><div><h2>Diagnóstico</h2><p>Lo que conversamos y cómo lo resuelve Jeeves.</p></div></div>
 <div class="tbl"><table>
@@ -230,6 +258,16 @@ footer b{color:var(--txt)}
 </div>
 </section>
 
+<section id="fase2">
+<div class="sh"><div><span class="tag">Fase 2</span><h2>Migración de viáticos a Jeeves</h2><p>Una vez activa la operación de pagos a notarías y proveedores, todo lo que hoy operan en viáticos puede migrar a Jeeves, en la misma plataforma y con el mismo cupo.</p></div></div>
+<div class="ph">
+<div class="phc"><div class="ic">✈️</div><h3>Viáticos en una sola plataforma</h3><p>Tarjetas por colaborador o por viaje, con política de viaje precargada, presupuestos dinámicos y límites en tiempo real. Sin anticipos en efectivo.</p></div>
+<div class="phc"><div class="ic">🧾</div><h3>Legalizaciones optimizadas</h3><p>Agente de IA por WhatsApp que pide el soporte y lo asocia automáticamente a cada transacción, más conexión con la DIAN para traer las facturas electrónicas. Menos reprocesos y cierres más rápidos.</p></div>
+<div class="phc"><div class="ic">📊</div><h3>Control y reportería</h3><p>Gastos por proyecto, regional, centro de costo o colaborador, con aprobaciones y trazabilidad de cada peso.</p></div>
+<div class="phc g"><div class="ic">🔗</div><h3>API sin costo para el ERP</h3><p>Les entregamos la API de Jeeves <b style="color:var(--gold)">sin costo</b> para integrar transacciones, soportes y centros de costo directamente con su ERP.</p></div>
+</div>
+</section>
+
 <footer>
 <b>Carlos Gómez</b> · Senior Enterprise AE · Jeeves Colombia · carlos.gomez@tryjeeves.com · +57 316 480 1023<br>
 <span style="font-size:12px">Simulación con fines ilustrativos. Las condiciones finales quedan sujetas a la firma de la documentación indicada.</span>
@@ -263,6 +301,11 @@ document.getElementById('minMes').textContent=cop(minMes);
 document.getElementById('minPct').textContent=(gasto>0?(minMes/gasto*100).toLocaleString('es-CO',{maximumFractionDigits:1}):'0')+'%';
 document.querySelectorAll('.planCop').forEach(function(e){e.textContent='COP '+Math.round(costo).toLocaleString('es-CO');});
 document.getElementById('planNet').textContent=cop(n1)+' neto · año 1';
+var cbClara=gasto*12*0.001;
+document.getElementById('cmpGasto').textContent=cop(gasto);
+document.getElementById('cbJeeves').textContent=cop(ahorroCashback);
+document.getElementById('cbClara').textContent=cop(cbClara);
+document.getElementById('cbDiff').textContent=cop(ahorroCashback-cbClara)+' más en el primer año';
 }
 ['planUSD','trm','gasto'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
 calc();
