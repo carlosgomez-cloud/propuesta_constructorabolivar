@@ -113,18 +113,18 @@ footer b{color:var(--txt)}
 </style>
 </head>
 <body>
-<div id="gate" style="position:fixed;inset:0;background:#0B0B0E;z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;font-family:Inter,system-ui,sans-serif"><form id="gf" style="background:#141418;border:1px solid #26262E;border-radius:18px;padding:30px 26px;width:100%;max-width:340px;text-align:center;color:#F5F5F7"><div style="font-weight:800;letter-spacing:.18em;font-size:20px">JEEVES</div><div style="color:#9C9CA6;font-size:14px;margin:8px 0 18px">Propuesta privada · Constructora Bolívar</div><input id="gp" type="password" placeholder="Clave de acceso" autocomplete="off" style="width:100%;background:#17171C;border:1px solid #26262E;color:#F5F5F7;border-radius:10px;padding:12px;font:500 15px Inter,sans-serif;margin-bottom:12px"><button type="submit" style="width:100%;background:#C9A84C;color:#0B0B0E;border:none;border-radius:10px;padding:12px;font:600 15px Inter,sans-serif;cursor:pointer">Ingresar</button><div id="ge" style="color:#ff7a7a;font-size:13px;margin-top:10px;min-height:16px"></div></form></div>
+<div id="gate" style="position:fixed;inset:0;background:#0B0B0E;z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;font-family:Inter,system-ui,sans-serif"><form id="gf" style="background:#141418;border:1px solid #26262E;border-radius:18px;padding:30px 26px;width:100%;max-width:340px;text-align:center;color:#F5F5F7"><img src="jeeves-logo.png" alt="Jeeves" style="height:42px;width:auto;display:block;margin:0 auto"><div style="color:#9C9CA6;font-size:14px;margin:8px 0 18px">Propuesta privada · Constructora Bolívar</div><input id="gp" type="password" placeholder="Clave de acceso" autocomplete="off" style="width:100%;background:#17171C;border:1px solid #26262E;color:#F5F5F7;border-radius:10px;padding:12px;font:500 15px Inter,sans-serif;margin-bottom:12px"><button type="submit" style="width:100%;background:#C9A84C;color:#0B0B0E;border:none;border-radius:10px;padding:12px;font:600 15px Inter,sans-serif;cursor:pointer">Ingresar</button><div id="ge" style="color:#ff7a7a;font-size:13px;margin-top:10px;min-height:16px"></div></form></div>
 <script>(function(){var H="18bab1a5de430d45d554fe843d1c12b72a46c02872ac236b6a74b1e10bb41a14";function open(){var g=document.getElementById("gate");if(g)g.remove();}try{if(sessionStorage.getItem("rk")===H){open();return;}}catch(_){}document.getElementById("gf").addEventListener("submit",async function(e){e.preventDefault();var val=document.getElementById("gp").value.trim();var buf=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(val));var h=Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,"0")}).join("");if(h===H){try{sessionStorage.setItem("rk",H)}catch(_){}open();}else{document.getElementById("ge").textContent="Clave incorrecta";}});})();</script>
 
 <div class="wrap">
 <div class="top">
-<div class="brand">JEEVES<small>Propuesta para</small></div>
+<div class="brand"><img src="jeeves-logo.png" alt="Jeeves" style="height:44px;width:auto;display:block"><small style="margin-top:8px">Propuesta para</small></div>
 <img class="clogo" src="bolivar-logo.png" alt="Constructora Bolívar">
 </div>
 
 <div class="hero">
 <span class="pill ok">✓ Cupo aprobado · Comité de Crédito Jeeves · Octubre 2026</span>
-<h1>Cupo de <span class="gold">USD 900.000</span> <span style="color:var(--mut);font-weight:600">(≈ COP 2.844 millones)</span> para tarjetas con <span class="green">0% interés</span>, y pagos a proveedores con dispersión a cuentas <span style="color:var(--mut);font-weight:600">(interés diario)</span>.</h1>
+<h1>Cupo de <span class="gold">USD 900.000</span> <span style="color:var(--mut);font-weight:600">(≈ COP 2.844 millones)</span> para tarjetas con <span class="green">0% interés</span>, y pagos a proveedores con dispersión a cuentas.</h1>
 <p class="lead">Capital de trabajo para los pagos a notarías y proveedores nacionales de Constructora Bolívar: tarjetas corporativas y virtuales + Jeeves Pay para dispersar directamente a cuentas bancarias, con hasta 37 días.</p>
 <div class="stats">
 <div class="stat"><b>COP 2.844MM</b><span>cupo aprobado · USD 900.000</span></div>
@@ -187,7 +187,7 @@ footer b{color:var(--txt)}
 <div><label>Gravamen 4x1000 (GMF) · anual</label><input type="text" id="gmfPrev" disabled></div>
 <div><label>Cashback 1% · primeros 6 meses</label><input type="text" id="cbPrev" disabled></div>
 </div>
-<div class="note"><b>Fórmulas.</b> Volumen anual = gasto mensual × 12 · Ahorro 4x1000 = volumen anual × 0,4% · Cashback = gasto mensual × 6 meses × 1% · Costo de plataforma = valor anual del plan × TRM · Neto = ahorro total − costo de plataforma · ROE = neto ÷ costo de plataforma · Consumo mínimo mensual para cubrir la suscripción = costo de plataforma ÷ (12 × 0,4% + 6 × 1%).<br><br><b>Supuestos.</b> Se asume el uso del 100% del cupo aprobado cada mes, disponible desde el primer mes. La TRM es de referencia y se puede ajustar.</div>
+<div class="note"><b>Fórmulas.</b> Volumen anual = gasto mensual × 12 · Ahorro 4x1000 = volumen anual × 0,4% · Cashback = gasto mensual × 6 meses × 1% · Costo de plataforma = valor anual del plan × TRM · Neto = ahorro total − costo de plataforma · ROE = neto ÷ costo de plataforma · Consumo mínimo mensual para cubrir la suscripción: con 4x1000 + cashback = costo de plataforma ÷ (12 × 0,4% + 6 × 1%) · solo con 4x1000 = costo de plataforma ÷ (12 × 0,4%).<br><br><b>Supuestos.</b> Se asume el uso del 100% del cupo aprobado cada mes, disponible desde el primer mes. La TRM es de referencia y se puede ajustar.</div>
 </div>
 
 <div class="res-title">Ahorros por rubro · Anual</div>
@@ -198,7 +198,12 @@ footer b{color:var(--txt)}
 
 <div class="tot">
 <div class="tt"><small>Ahorro Total · Primer Año</small><div class="big" id="t1">—</div><div class="net">Menos costo de plataforma (<span class="cost">—</span>) = <b id="n1">—</b> neto</div></div>
-<div class="tt" style="background:linear-gradient(180deg,#1f1a0d,#141418);border-color:#4a3d18"><small>Consumo mínimo mensual para cubrir la suscripción</small><div class="big" id="minMes" style="color:var(--gold)">—</div><div class="net">Con este consumo mensual, el ahorro en 4x1000 + cashback paga el Plan Gold (<span class="cost">—</span> al año). Equivale al <b id="minPct">—</b> del cupo aprobado.</div></div>
+<div class="tt" style="background:linear-gradient(180deg,#1f1a0d,#141418);border-color:#4a3d18"><small>Consumo mínimo mensual para cubrir la suscripción (<span class="cost">—</span> al año)</small>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px">
+<div><div style="font-size:12px;color:var(--mut)">Con 4x1000 + cashback</div><div class="big" id="minMes" style="color:var(--gold);font-size:26px;margin:2px 0">—</div><div style="font-size:12.5px;color:var(--mut)"><b id="minPct" style="color:var(--txt)">—</b> del cupo</div></div>
+<div><div style="font-size:12px;color:var(--mut)">Solo con 4x1000</div><div class="big" id="minMes2" style="color:var(--gold);font-size:26px;margin:2px 0">—</div><div style="font-size:12.5px;color:var(--mut)"><b id="minPct2" style="color:var(--txt)">—</b> del cupo</div></div>
+</div>
+<div class="net" style="margin-top:12px">Consumo mensual con el que el ahorro paga el Plan Gold. El cashback aplica los primeros 6 meses; sin cashback, el consumo necesario es el de la columna "Solo con 4x1000".</div></div>
 </div>
 
 <div class="roe">
@@ -227,7 +232,7 @@ footer b{color:var(--txt)}
 <tr><th>Frente</th><th>Hoy</th><th>Con Jeeves</th></tr>
 <tr><td>Pagos a notarías</td><td>Pagos recurrentes desde las cuentas bancarias, con 4x1000 en cada movimiento.</td><td>Pago con tarjeta o dispersión desde el cupo Jeeves, sin 4x1000 y con hasta 37 días para pagar y 1% de cashback.</td></tr>
 <tr><td>Proveedores nacionales</td><td>Salida inmediata de caja al momento del pago.</td><td>Jeeves Pay dispersa a la cuenta del proveedor y la constructora paga a Jeeves al corte.</td></tr>
-<tr><td>Capital de trabajo</td><td>Caja comprometida en una operación de 187 proyectos y un backlog de COP 32 billones.</td><td>USD 900.000 de cupo revolvente adicional a la banca tradicional: 0% interés en tarjetas si se paga a tiempo; Jeeves Pay con interés diario.</td></tr>
+<tr><td>Capital de trabajo</td><td>Caja comprometida en una operación de 187 proyectos y un backlog de COP 32 billones.</td><td>USD 900.000 de cupo revolvente adicional a la banca tradicional: 0% interés en tarjetas y Jeeves Pay con interés diario.</td></tr>
 <tr><td>Control y conciliación</td><td>Soportes y conciliación manual de cada pago.</td><td>Tarjetas por proyecto o área, control total de cupos y categorías, trazabilidad de movimientos y conciliación en tiempo real.</td></tr>
 </table></div>
 </section>
@@ -291,6 +296,7 @@ var t1=ahorroGMF+ahorroCashback;
 var n1=t1-costo;
 var r1=costo>0?n1/costo*100:0;
 var minMes=costo/(12*0.004+6*0.01);
+var minMes2=costo/(12*0.004);
 document.getElementById('gmfPrev').value=cop(ahorroGMF);
 document.getElementById('cbPrev').value=cop(ahorroCashback);
 document.getElementById('rGmf').textContent=cop(ahorroGMF);
@@ -300,6 +306,8 @@ document.getElementById('n1').textContent=cop(n1);
 document.querySelectorAll('.cost').forEach(function(e){e.textContent=cop(costo);});
 document.getElementById('roe1').textContent=pct(r1);
 document.getElementById('minMes').textContent=cop(minMes);
+document.getElementById('minMes2').textContent=cop(minMes2);
+document.getElementById('minPct2').textContent=(gasto>0?(minMes2/gasto*100).toLocaleString('es-CO',{maximumFractionDigits:1}):'0')+'%';
 document.getElementById('minPct').textContent=(gasto>0?(minMes/gasto*100).toLocaleString('es-CO',{maximumFractionDigits:1}):'0')+'%';
 document.querySelectorAll('.planCop').forEach(function(e){e.textContent='COP '+Math.round(costo).toLocaleString('es-CO');});
 document.getElementById('planNet').textContent=cop(n1)+' neto · año 1';
