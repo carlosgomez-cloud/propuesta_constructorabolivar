@@ -111,10 +111,10 @@ footer b{color:var(--txt)}
 
 <div class="hero">
 <span class="pill ok">✓ Cupo aprobado · Comité de Crédito Jeeves · Octubre 2026</span>
-<h1>Cupo de <span class="gold">USD 830.000</span> para tarjetas y pagos a proveedores con dispersión a cuentas, con <span class="green">0% interés</span>.</h1>
+<h1>Cupo de <span class="gold">USD 900.000</span> para tarjetas y pagos a proveedores con dispersión a cuentas, con <span class="green">0% interés</span>.</h1>
 <p class="lead">Capital de trabajo para los pagos a notarías y proveedores nacionales de Constructora Bolívar: tarjetas corporativas y virtuales + Jeeves Pay para dispersar directamente a cuentas bancarias, con hasta 37 días para pagar y sin 4x1000.</p>
 <div class="stats">
-<div class="stat"><b>USD 830K</b><span>cupo aprobado · ≈ COP 2.600MM</span></div>
+<div class="stat"><b>USD 900K</b><span>cupo aprobado · ≈ COP 2.844MM</span></div>
 <div class="stat"><b>37 días</b><span>sin intereses</span></div>
 <div class="stat"><b>4x1000</b><span>exención total</span></div>
 <div class="stat"><b>1%</b><span>cashback · 6 meses</span></div>
@@ -130,16 +130,15 @@ footer b{color:var(--txt)}
 <section id="aprobacion">
 <div class="sh"><div>
 <h2>Aprobación y condiciones</h2>
-<p>Resultado del Comité de Crédito de Jeeves para Constructora Bolívar S.A. — cupo, esquema de activación y requisitos para habilitarlo.</p>
+<p>Resultado del Comité de Crédito de Jeeves para Constructora Bolívar S.A. — cupo aprobado y requisitos para habilitarlo.</p>
 </div></div>
 <div class="apv">
 <div class="ap g">
 <h3>Cupo aprobado</h3>
-<div class="amt">USD 830.000</div>
-<div class="sub">≈ COP 2.600 millones · Tarjetas + Jeeves Pay · Plan Gold</div>
-<div class="ramp">
-<div class="rp"><small>Mes 1</small><b class="gold">USD 430.000</b><span>Cupo inicial al activar la cuenta.</span></div>
-<div class="rp"><small>Mes 2</small><b class="gold">USD 830.000</b><span>+ USD 400.000, sujeto a pagos puntuales y conexión con la DIAN.</span></div>
+<div class="amt">USD 900.000</div>
+<div class="sub">≈ COP 2.844 millones · Tarjetas + Jeeves Pay · Plan Gold</div>
+<div class="ramp" style="grid-template-columns:1fr">
+<div class="rp"><small>Disponibilidad</small><b class="gold">100% desde el mes 1</b><span>El cupo completo queda disponible al activar la cuenta.</span></div>
 </div>
 </div>
 <div class="ap">
@@ -159,7 +158,7 @@ footer b{color:var(--txt)}
 <div class="sh">
 <div>
 <h2>Simulador de eficiencia financiera</h2>
-<p>Calculado sobre el cupo aprobado (≈ COP 2.600 millones/mes en tarjetas y pagos) y el Plan Gold. Con el botón puedes ver y ajustar todos los supuestos (gasto mensual, TRM, valor del plan).</p>
+<p>Calculado sobre el cupo aprobado (≈ COP 2.844 millones/mes en tarjetas y pagos) y el Plan Gold. Con el botón puedes ver y ajustar todos los supuestos (gasto mensual, TRM, valor del plan).</p>
 </div>
 <button class="toggle-btn" id="btnCalc" onclick="toggleCalc()">⚙️ Ver cálculos y supuestos</button>
 </div>
@@ -169,11 +168,11 @@ footer b{color:var(--txt)}
 <div><label>Plan de la Plataforma</label><input type="text" value="Gold" disabled></div>
 <div><label>Valor Anual del Plan (USD)</label><input type="number" id="planUSD" value="3000" min="0" step="100"></div>
 <div><label>TRM del día (COP/USD)</label><input type="number" id="trm" value="3160" min="0" step="1"><div class="hint">TRM de referencia · 23 oct 2026 (editable)</div></div>
-<div><label>Gasto mensual en tarjetas (COP)</label><input type="number" id="gasto" value="2600000000" min="0" step="1000000"><div class="hint">Línea de crédito aprobada: USD 830.000 ≈ COP 2.600.000.000</div></div>
+<div><label>Gasto mensual en tarjetas (COP)</label><input type="number" id="gasto" value="2844000000" min="0" step="1000000"><div class="hint">Línea de crédito aprobada: USD 900.000 ≈ COP 2.844.000.000</div></div>
 <div><label>Gravamen 4x1000 (GMF) · anual</label><input type="text" id="gmfPrev" disabled></div>
 <div><label>Cashback 1% · primeros 6 meses</label><input type="text" id="cbPrev" disabled></div>
 </div>
-<div class="note"><b>Fórmulas.</b> Volumen anual = gasto mensual × 12 · Ahorro 4x1000 = volumen anual × 0,4% · Cashback = gasto mensual × 6 meses × 1% (solo primer año) · Costo de plataforma = valor anual del plan × TRM · Neto = ahorro total − costo de plataforma · ROE = neto ÷ costo de plataforma.<br><br><b>Supuestos.</b> Se asume el uso del 100% del cupo aprobado cada mes; en el primer mes el cupo inicial es de USD 430.000, por lo que el ahorro real del año 1 puede ser ligeramente menor. La TRM es de referencia y se puede ajustar.</div>
+<div class="note"><b>Fórmulas.</b> Volumen anual = gasto mensual × 12 · Ahorro 4x1000 = volumen anual × 0,4% · Cashback = gasto mensual × 6 meses × 1% (solo primer año) · Costo de plataforma = valor anual del plan × TRM · Neto = ahorro total − costo de plataforma · ROE = neto ÷ costo de plataforma.<br><br><b>Supuestos.</b> Se asume el uso del 100% del cupo aprobado cada mes, disponible desde el primer mes. La TRM es de referencia y se puede ajustar.</div>
 </div>
 
 <div class="res-title">Ahorros por rubro · Anual</div>
@@ -199,7 +198,7 @@ footer b{color:var(--txt)}
 <tr><th>Frente</th><th>Hoy</th><th>Con Jeeves</th></tr>
 <tr><td>Pagos a notarías</td><td>Pagos recurrentes desde las cuentas bancarias, con 4x1000 en cada movimiento.</td><td>Pago con tarjeta o dispersión desde el cupo Jeeves, sin 4x1000 y con hasta 37 días para pagar.</td></tr>
 <tr><td>Proveedores nacionales</td><td>Salida inmediata de caja al momento del pago.</td><td>Jeeves Pay dispersa a la cuenta del proveedor y la constructora paga a Jeeves al corte.</td></tr>
-<tr><td>Capital de trabajo</td><td>Caja comprometida en una operación de 187 proyectos y un backlog de COP 32 billones.</td><td>USD 830.000 de cupo revolvente adicional a la banca tradicional, 0% interés si se paga a tiempo.</td></tr>
+<tr><td>Capital de trabajo</td><td>Caja comprometida en una operación de 187 proyectos y un backlog de COP 32 billones.</td><td>USD 900.000 de cupo revolvente adicional a la banca tradicional, 0% interés si se paga a tiempo.</td></tr>
 <tr><td>Control y conciliación</td><td>Soportes y conciliación manual de cada pago.</td><td>Tarjetas por proyecto o área, límites en tiempo real y conexión con la DIAN para el soporte de facturas.</td></tr>
 </table></div>
 </section>
