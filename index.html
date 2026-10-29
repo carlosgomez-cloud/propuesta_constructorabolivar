@@ -107,6 +107,11 @@ tr:last-child td{border-bottom:none}
 .phc p{color:var(--mut);font-size:14px}
 .phc.g{border-color:#4a3d18;background:linear-gradient(180deg,#1f1a0d,#141418)}
 .tag{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid #4a3d18;border-radius:999px;padding:4px 10px;margin-bottom:10px}
+.slider-box{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px 20px;margin-bottom:16px}
+.slider-box label{display:block;font-size:14px;color:var(--mut);margin-bottom:10px}
+.slider-box label b{color:var(--txt);font-size:18px}
+.slider-box input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer}
+.slider-scale{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-top:4px}
 footer{padding:36px 0 50px;color:var(--mut);font-size:13.5px}
 footer b{color:var(--txt)}
 @media(max-width:640px){.p-elite{width:150px;height:195px}.p-corp,.p-virt,.p-pay{width:100%;height:auto;aspect-ratio:1.7}.cc{width:100%}.cc:first-child{width:auto}.clogo{height:48px}.ramp{grid-template-columns:1fr}.ap .amt{font-size:36px}}
@@ -173,7 +178,7 @@ footer b{color:var(--txt)}
 <div class="sh">
 <div>
 <h2>Simulador de eficiencia financiera</h2>
-<p>Calculado sobre el cupo aprobado (≈ COP 2.844 millones/mes en tarjetas y pagos) y el Plan Gold. Con el botón puedes ver y ajustar todos los supuestos (gasto mensual, TRM, valor del plan).</p>
+<p>Calculado sobre el cupo aprobado (≈ COP 2.844 millones/mes en tarjetas y pagos) y el Plan Gold. Mueve la barra para simular distintos niveles de consumo mensual; con el botón puedes ver y ajustar los demás supuestos (TRM, valor del plan).</p>
 </div>
 <button class="toggle-btn" id="btnCalc" onclick="toggleCalc()">⚙️ Ver cálculos y supuestos</button>
 </div>
@@ -183,11 +188,16 @@ footer b{color:var(--txt)}
 <div><label>Plan de la Plataforma</label><input type="text" value="Gold" disabled></div>
 <div><label>Valor Anual del Plan (USD)</label><input type="number" id="planUSD" value="6000" min="0" step="100"></div>
 <div><label>TRM del día (COP/USD)</label><input type="number" id="trm" value="3160" min="0" step="1"><div class="hint">TRM de referencia · 23 oct 2026 (editable)</div></div>
-<div><label>Gasto mensual en tarjetas (COP)</label><input type="number" id="gasto" value="2844000000" min="0" step="1000000"><div class="hint">Línea de crédito aprobada: USD 900.000 ≈ COP 2.844.000.000</div></div>
 <div><label>Gravamen 4x1000 (GMF) · anual</label><input type="text" id="gmfPrev" disabled></div>
 <div><label>Cashback 1% · primeros 6 meses</label><input type="text" id="cbPrev" disabled></div>
 </div>
 <div class="note"><b>Fórmulas.</b> Volumen anual = gasto mensual × 12 · Ahorro 4x1000 = volumen anual × 0,4% · Cashback = gasto mensual × 6 meses × 1% · Costo de plataforma = valor anual del plan × TRM · Neto = ahorro total − costo de plataforma · ROE = neto ÷ costo de plataforma · Consumo mínimo mensual para cubrir la suscripción: con 4x1000 + cashback = costo de plataforma ÷ (12 × 0,4% + 6 × 1%) · solo con 4x1000 = costo de plataforma ÷ (12 × 0,4%).<br><br><b>Supuestos.</b> Se asume el uso del 100% del cupo aprobado cada mes, disponible desde el primer mes. La TRM es de referencia y se puede ajustar.</div>
+</div>
+
+<div class="slider-box">
+<label>Gasto mensual en tarjetas: <b id="gastoLbl">—</b> <span id="gastoPct" style="font-size:13px"></span></label>
+<input type="range" id="gasto" min="50000000" max="2844000000" step="1000000" value="2844000000">
+<div class="slider-scale"><span>$50 millones</span><span>$1.422 millones</span><span>$2.844 millones · cupo aprobado</span></div>
 </div>
 
 <div class="res-title">Ahorros por rubro · Anual</div>
@@ -298,6 +308,8 @@ var r1=costo>0?n1/costo*100:0;
 var minMes=costo/(12*0.004+6*0.01);
 var minMes2=costo/(12*0.004);
 document.getElementById('gmfPrev').value=cop(ahorroGMF);
+document.getElementById('gastoLbl').textContent=cop(gasto)+' / mes';
+document.getElementById('gastoPct').textContent='· '+(gasto/2844000000*100).toLocaleString('es-CO',{maximumFractionDigits:0})+'% del cupo aprobado';
 document.getElementById('cbPrev').value=cop(ahorroCashback);
 document.getElementById('rGmf').textContent=cop(ahorroGMF);
 document.getElementById('rCb').textContent=cop(ahorroCashback);
